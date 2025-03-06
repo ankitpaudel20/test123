@@ -40,10 +40,6 @@ autoscaling:
   maxReplicas: 5
   targetCPUUtilizationPercentage: 80
 
-nodeSelector: {}
-tolerations: []
-affinity: {}
-
 env:
   - name: HTTP_PORT
     value: "4444"
