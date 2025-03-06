@@ -16,6 +16,7 @@ func (app *application) routes() http.Handler {
 	mux.Handler("GET", "/static/*filepath", fileServer)
 
 	mux.HandlerFunc("GET", "/", app.home)
+	mux.HandlerFunc("GET", "/healthz", func(w http.ResponseWriter, r *http.Request) { w.Write([]byte(`hello world`)) })
 
 	mux.Handler("GET", "/basic-auth-protected", app.requireBasicAuthentication(http.HandlerFunc(app.protected)))
 
